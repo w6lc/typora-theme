@@ -115,10 +115,9 @@ pre.md-meta-block {
 #write a {
   color: var(--tone);
   text-decoration:none;
-  border-bottom: 2px solid var(--tone);
 }
-#write a.md-toc-inner {
-  border-bottom: none;
+#write a .md-plain {
+  border-bottom: 2px solid var(--tone);
 }
 
 #write .md-footnote {
@@ -152,6 +151,18 @@ blockquote {
   background-color: var(--tone-l2);
   position: relative;
   border-left: none;
+}
+/*shortcut*/
+kbd {
+  border: .1em solid #5b5b5e;
+  background: transparent;
+  color: var(--body);
+  margin: 0 .4rem;
+  font-size: .95rem;
+  padding: .3em .4em;
+  border-radius: .4em;
+  vertical-align: top;
+  box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
 }
 
 
