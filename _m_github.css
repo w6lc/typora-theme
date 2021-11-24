@@ -1,0 +1,226 @@
+:root {
+  --body-font: "open sans";
+  --monospace: "consolas"; /* inner */
+
+  --body: rgb(36,41,47); /*rgb(36,41,47)*/
+  --select-text-bg-color: #ffd2ca; /* inner */
+  --tone: rgb(0, 196, 182);
+  --link: rgb(9, 105, 218);
+
+  --link-light: rgba(0, 196, 182, 0.1);
+  --highlight: #ff3502;
+  --bg: rgb(246,248,250);
+  --border: rgb(216, 222, 228);
+}
+
+html {
+  font-size: 16px; /* 1.5em=30px */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================== body =========================== */
+body {
+  font-family: var(--body-font);
+  color: var(--body);
+  line-height: 1.5em;
+}
+
+#write {
+  max-width: 894px;
+  margin: 0 auto;
+  padding: 16px 32px 32px;
+  
+}
+
+/* 行间距 */
+p, blockquote,pre, ol, ul{
+  margin: 0 0 1rem;
+}
+
+/* ========================= Title ============================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--body-font);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.25;
+  color: var(--body);
+}
+h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.875em;
+}
+h6 {
+  font-size: 0.85em;
+  color: rgb(87,96,106);
+}
+
+
+#write > h3.md-focus:before,
+#write > h4.md-focus:before,
+#write > h5.md-focus:before,
+#write > h6.md-focus:before {
+  background-color: var(--tone);
+  color: white;
+}
+
+/* split line 30px, 总是有平滑 */
+hr {
+  height: 0.25rem;
+  margin: 1.5rem 0;
+  background-color: var(--border);
+  border: 0;
+}
+
+/* ========================= code ====================== */
+#write .md-fences,
+pre.md-meta-block {
+  font-size: 0.85em;
+  border-radius: 6px;
+  background-color: var(--bg);
+  color: var(--body);
+  padding: 16px;
+  line-height: 1.45;
+}
+
+/*code snippet*/
+#write code,tt {
+  padding: 0.2em 0.4em; /*无解，多余元素后无论多大行距多一px*/
+  border: none;
+  border-radius: 6px;
+  font-family: var(--monospace);
+  font-size: 0.85em;
+  background-color: rgb(239,241,243); 
+}
+
+/* ============================= link ========================== */
+#write a {
+  color: var(--link);
+  text-decoration:none;
+}
+#write a:hover {
+  text-decoration:underline;
+}
+
+#write .md-footnote {
+  background-color: white;
+  color: var(--link);
+}
+#write .md-footnote:hover{
+  text-decoration:underline;
+}
+#write .md-footnote:before {
+  content: "[";
+}
+#write .md-footnote:after {
+  content: "]";
+}
+
+/* quote */
+blockquote {
+  padding: 0 1em;
+  color: rgb(87,96,106);
+  border-left: 0.25em solid rgb(208,215,222);
+}
+
+/* ============================== table ================================= */
+/* 标题和一行 */
+table thead, tr:nth-child(2n) {
+  background-color: var(--bg);
+}
+/* 行的第一个,和后续 */
+table th,table td {      
+  border: 1px solid rgb(208,215,222);
+  padding: 6px 13px;
+}
+
+
+/* =========================== list  ================================ */
+/* 列表子项上下间隔调整 */
+#write ul li *, #write ol li * {
+  margin-top: 0.25em;
+  margin-bottom: 0em;
+}
+#write ul,ol {
+  padding-left: 2em;
+}
+#write .task-list-item {
+  margin-left: -0.35em;
+}
+
+input[type=checkbox] {
+  position:absolute;
+  top: 0.1em;
+  left:-0.04em;
+}
+
+
+/* =============================== else ============================== */
+
+/** 折叠标签 **/
+details {
+  display: block;
+  padding: 0.6em;
+  margin: 1em 0;
+  background: white; /*#ebf9ed*/
+  font-size: 1rem;
+  border: 1px solid rgb(230, 230, 230);
+  -webkit-transition: all 0.28s ease; /*动画*/
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+}
+
+details summary {
+  cursor: pointer;
+  padding: 0.6em;
+  margin: -0.8em;
+  color: var(--body);
+  background: rgb(249,249,249);
+  border: 1px solid rgb(230, 230, 230);
+}
+
+details[open] > summary {
+  margin-bottom: 0.6em;
+}
+
+
+/** 打印pdf **/
+@media print {
+  html {
+    font-size: 12px;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+
+  pre {
+    word-wrap: break-word;
+  }
+}
